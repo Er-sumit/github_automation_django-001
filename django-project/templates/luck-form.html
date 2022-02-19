@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="background-color: olive;">Hello World!</h1>
+<p>This is a paragraph.</p>
+<form method="POST" action="/polls/luck_result/", method="POST"> 
+    {% csrf_token %}
+    <input type="text" name="name" id="name" placeholder="Your Name"></input>
+    <!--<a id="aButton" href="/polls/luck_result/">Try your luck</a>-->
+    <button  type="submit" >Try Your Luck</button>
+</form>
+
+</body>
+
+</html>
