@@ -29,8 +29,8 @@ jobs:
       env:
         SUPER_SECRET: ${{ secrets.DJANGO_SECRET_KEY }}
       run: |
-        sudo echo "SECRET_KEY='$SUPER_SECRET'" > django-project/.env
-        sudo chown `whoami` .env
+        sudo echo "SECRET_KEY='$SUPER_SECRET'" > django-project/mysite/.env
+        sudo chown `whoami` django-project/mysite/.env
         sudo chmod 400 django-project/mysite/.env
     - name: Run Tests
       run: |
