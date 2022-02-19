@@ -10,3 +10,4 @@ pyparsing
 pytest
 pytest-django
 sqlparse
+django-environ
