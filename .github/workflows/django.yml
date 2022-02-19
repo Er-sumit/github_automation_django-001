@@ -27,7 +27,7 @@ jobs:
         pip install -r requirements.txt
     - name: Setup Secrets for Application
       env:
-        SUPER_SECRET: ${{ secrets.SuperSecret }}
+        SUPER_SECRET: ${{ secrets.DJANGO_SECRET_KEY }}
       run: |
         sudo echo "SECRET_KEY='$SUPER_SECRET'" > django-project/.env
         sudo chown `whoami` .env
