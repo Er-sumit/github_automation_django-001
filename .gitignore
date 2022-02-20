@@ -10,6 +10,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Terraform local files
+.terraform/*
+.terraform*
 # C extensions
 *.so
 
