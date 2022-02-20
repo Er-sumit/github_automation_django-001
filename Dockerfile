@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 # LABEL about the custom image
 LABEL maintainer="smsontakke@ymail.com"
-LABEL version="0.1"
+LABEL version="0.11"
 LABEL description="This is custom Docker Image created with GitHub actions and contains Django project"
 
 
