@@ -1,9 +1,10 @@
 terraform {
-  required_version = "~> 0.12"
-  backend "remote" {
-    hostname     = "app.terraform.io"
+  cloud {
     organization = "own-space"
-    workspaces { prefix = "open-source-" }
+
+    workspaces {
+      name = "Django-gh-actions-test"
+    }
   }
 }
 
