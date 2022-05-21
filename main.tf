@@ -1,8 +1,10 @@
 terraform {
-  backend "remote" {
-    hostname     = "app.terraform.io"
+  cloud {
     organization = "own-space"
-    workspaces { prefix = "open-source-" }
+
+    workspaces {
+      name = "Django-gh-actions-test"
+    }
   }
 }
 
