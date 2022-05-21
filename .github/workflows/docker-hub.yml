@@ -30,6 +30,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./src/Dotnet5.GraphQL3.Store.WebAPI/Dockerfile 
+          file: ./Dockerfile 
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/github_automation_django:latest
