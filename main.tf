@@ -38,8 +38,8 @@ module "network" {
 # }
 
 
-resource "aws_iam_role" "deployment_service_role1" {
-  name               = "deployment_service_role1"
+resource "aws_iam_role" "CodeDeployServiceRole" {
+  name               = "CodeDeployServiceRole"
   path               = "/system/"
   assume_role_policy = data.aws_iam_policy_document.deployment-service-policy.json
 }
