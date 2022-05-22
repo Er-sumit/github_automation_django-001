@@ -31,14 +31,6 @@ module "network" {
   }
 }
 
-resource "aws_ecs_cluster" "github_cicd_cluster" {
-  name = "github-cicd-cluster"
-
-  tags = {
-    Name = "github-cicd-cluster"
-  }
-}
-
 # resource "aws_iam_role" "instance" {
 #   name               = "instance_role"
 #   path               = "/system/"
