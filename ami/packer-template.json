@@ -40,7 +40,7 @@
     "provisioners" : [
         {
             "type" : "shell",
-            "script" : "./setup.sh",
+            "script" : "./init.sh",
             "execute_command" : "sudo -E -S sh '{{ .Path }}'"
         }
     ]
