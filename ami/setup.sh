@@ -19,7 +19,7 @@ git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_dj
 pip3 install -r /src/requirements.txt
 
 # write SUPER_SECRET in /src/src/config.py
-echo $SUPER_SECRET >> /src/django-project/mysite/.env
+echo $DJANGO_SECRET_KEY >> /src/django-project/mysite/.env
 echo $PACKER_BUILDER_AWS_REGION >> /src/django-project/mysite/.env
 echo $VARS >> /src/django-project/mysite/.env
 

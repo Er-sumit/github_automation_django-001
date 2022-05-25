@@ -3,7 +3,7 @@
         "region" : "ap-south-1",
         "aws_access_key_id": "{{ env `AWS_ACCESS_KEY_ID` }}",
         "aws_secret_access_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}",
-        "SUPER_SECRET": "{{env `DJANGO_SECRET_KEY`}}",
+        "DJANGO_SECRET_KEY": "{{env `DJANGO_SECRET_KEY`}}",
         "source_ami" : "ami-079b5e5b3971bd10d" 
     },
     "builders" : [
@@ -56,7 +56,7 @@
                 "PACKER_BUILDER_AWS_SUBNET_ID={{user `subnet_id`}}",
                 "PACKER_BUILDER_AWS_INSTANCE_TYPE=t2.micro",
                 "PACKER_BUILDER_AWS_SOURCE_AMI={{user `source_ami`}}",
-                "SUPER_SECRET={{user `super_secret`}}"
+                "DJANGO_SECRET_KEY={{user `DJANGO_SECRET_KEY`}}"
             ]
         }
     ]
