@@ -40,8 +40,23 @@
     "provisioners" : [
         {
             "type" : "shell",
-            "script" : "./setup.sh",
-            "execute_command" : "sudo -E -S sh '{{ .Path }}'"
+            "execute_command": "{{.Vars}} sudo -E -S bash '{{.Path}}'",
+            "scripts": [
+                "./setup.sh"
+            ],
+            "environment_vars": {
+                "VARS": "{{user `aws_access_key_id`}}:{{user `aws_secret_access_key`}}",
+                "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin",
+                "PACKER_BUILDER_TYPE": "amazon-ebs",
+                "PACKER_BUILDER_AWS_ACCESS_KEY": "{{user `AWS_ACCESS_KEY_ID`}}",
+                "PACKER_BUILDER_AWS_SECRET_KEY": "{{user `AWS_SECRET_ACCESS_KEY`}}",
+                "PACKER_BUILDER_AWS_REGION": "{{user `region`}}",
+                "PACKER_BUILDER_AWS_VPC_ID": "{{user `vpc_id`}}",
+                "PACKER_BUILDER_AWS_SUBNET_ID": "{{user `subnet_id`}}",
+                "PACKER_BUILDER_AWS_INSTANCE_TYPE": "t2.micro",
+                "PACKER_BUILDER_AWS_SOURCE_AMI": "{{user `source_ami`}}",
+                "SUPER_SECRET": "{{user `super_secret`}}"
+            }
         }
     ]
 }

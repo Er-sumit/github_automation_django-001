@@ -1,4 +1,7 @@
 yum update  
+export PATH=$PATH:/usr/local/bin
+# Install the following packages:   
+
 echo "Install git"
 yum install -y git
 echo "Install Python3"
@@ -14,6 +17,10 @@ git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_dj
 
 pip3 install -r /src/src/requirements.txt
 
+# write SUPER_SECRET in /src/src/config.py
+echo $SUPER_SECRET >> /src/src/django-project/mysite/.env
+echo $PACKER_BUILDER_AWS_REGION >> /src/src/django-project/mysite/.env
+echo $VARS >> /src/src/django-project/mysite/.env
 
 
 
