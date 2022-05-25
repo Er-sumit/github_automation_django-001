@@ -18,7 +18,7 @@
             "source_ami" : "{{ user `source_ami` }}",
             "ssh_username" : "ec2-user",
             "ssh_timeout": "2m",
-            "ami_name" : "django-app-${{github.sha}}",
+            "ami_name" : "django-app-{{ user `github.sha` }}",
             "ami_description" : "Amazon Linux Image with \"django\" application installed",
             "run_tags" : {
                 "Name" : "packer-builder-docker"
