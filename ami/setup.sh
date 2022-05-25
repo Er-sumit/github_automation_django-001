@@ -9,12 +9,10 @@ yum install -y python3-pip
 echo "Install postgresql-client"
 yum install -y postgresql-client
 
+mkdir /src
+git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_django-001.git /src/src
 
-git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_django-001.git /feature_src
-
-git clone --branch {{ user `github_branch` }} https://github.com/Er-sumit/github_automation_django-001.git /src
-
-pip3 install -r /feature_src/requirements.txt
+pip3 install -r /src/src/requirements.txt
 
 
 
