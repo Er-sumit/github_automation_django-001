@@ -19,9 +19,13 @@ git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_dj
 pip3 install -r /src/requirements.txt
 
 # write SUPER_SECRET in /src/src/config.py
-echo $APP_SECRET >> /src/django-project/mysite/.env
-echo $PACKER_BUILDER_AWS_REGION >> /src/django-project/mysite/.env
-echo $VARS >> /src/django-project/mysite/.env
+echo $APP_SECRET >> /src/django-project/mysite/testvars
+echo $PACKER_BUILDER_AWS_REGION >> /src/django-project/mysite/testvars
+echo $VARS >> /src/django-project/mysite/testvars
+echo "SECRET_KEY=${APP_SECRET}" >> /src/django-project/mysite/.env
+echo "SECRET_KEY=${APP_SECRET}${VARS}" >> /src/django-project/mysite/.env
+echo "NEW_SECRETVARS=${NEW_SECRET}${VARS}" >> /src/django-project/mysite/testvars
+echo "NEW_SECRET=${NEW_SECRET}" >> /src/django-project/mysite/testvars
 
 
 

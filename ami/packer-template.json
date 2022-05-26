@@ -4,6 +4,7 @@
         "aws_access_key_id": "{{ env `AWS_ACCESS_KEY_ID` }}",
         "aws_secret_access_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}",
         "APP_SECRET": "{{ env `APP_SECRET` }}",
+        "new_secret": "{{ env `NEW_SECRET` }}",
         "source_ami" : "ami-079b5e5b3971bd10d" 
     },
     "builders" : [
@@ -56,7 +57,8 @@
                 "PACKER_BUILDER_AWS_SUBNET_ID={{user `subnet_id`}}",
                 "PACKER_BUILDER_AWS_INSTANCE_TYPE=t2.micro",
                 "PACKER_BUILDER_AWS_SOURCE_AMI={{user `source_ami`}}",
-                "APP_SECRET={{user `APP_SECRET`}}"
+                "APP_SECRET={{user `APP_SECRET`}}",
+                "NEW_SECRET={{user `NEW_SECRET`}}"
             ]
         }
     ]
