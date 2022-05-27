@@ -25,7 +25,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: ami-id
-          path: output/ami-id.txt
+          path: output/ami-id.${{ github.sha }}
         
 
   terraform_deploy:
@@ -47,8 +47,8 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: ami-id
-        path: output/ami-id.txt
-    - run: cat ami-id.txt
+        path: output/ami-id.${{ github.sha }}
+    - run: cat ami-id.${{ github.sha }}
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
