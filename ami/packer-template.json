@@ -5,7 +5,9 @@
         "aws_secret_access_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}",
         "APP_SECRET": "{{ env `APP_SECRET` }}",
         "new_secret": "{{ env `NEW_SECRET` }}",
-        "source_ami" : "ami-079b5e5b3971bd10d" 
+        "github_branch": "{{ env `GITHUB_BRANCH` }}",
+        "source_ami" : "ami-079b5e5b3971bd10d",
+        "GITHUB_SHA": "{{ env `GITHUB_SHA` }}"
     },
     "builders" : [
         {
@@ -20,7 +22,7 @@
             "source_ami" : "{{ user `source_ami` }}",
             "ssh_username" : "ec2-user",
             "ssh_timeout": "2m",
-            "ami_name" : "django-app-{{ user `github.sha` }}",
+            "ami_name" : "django-app-{{ user `GITHUB_SHA` }}",
             "ami_description" : "Amazon Linux Image with \"django\" application installed",
             "run_tags" : {
                 "Name" : "packer-builder-docker"
@@ -35,7 +37,9 @@
             ],
             "tags" : {
                 "Tool" : "Packer",
-                "Author" : "user"
+                "Author" : "user",
+                "Github Branch": "{{ user `github_branch` }}",
+                "Github SHA": "{{ user `github_sha` }}"
             }
         }
     ],
@@ -53,12 +57,12 @@
                 "PACKER_BUILDER_AWS_ACCESS_KEY={{user `AWS_ACCESS_KEY_ID`}}",
                 "PACKER_BUILDER_AWS_SECRET_KEY={{user `AWS_SECRET_ACCESS_KEY`}}",
                 "PACKER_BUILDER_AWS_REGION={{user `region`}}",
-                "PACKER_BUILDER_AWS_VPC_ID={{user `vpc_id`}}",
-                "PACKER_BUILDER_AWS_SUBNET_ID={{user `subnet_id`}}",
                 "PACKER_BUILDER_AWS_INSTANCE_TYPE=t2.micro",
                 "PACKER_BUILDER_AWS_SOURCE_AMI={{user `source_ami`}}",
                 "APP_SECRET={{user `APP_SECRET`}}",
-                "NEW_SECRET={{user `NEW_SECRET`}}"
+                "NEW_SECRET={{user `NEW_SECRET`}}",
+                "GITHUB_BRANCH={{user `github_branch`}}",
+                "GITHUB_SHA={{user `GITHUB_SHA`}}"
             ]
         }
     ]

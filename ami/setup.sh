@@ -9,6 +9,8 @@ yum install -y python3
 echo "Install pip3"
 yum install -y python3-pip
 
+yum update
+
 echo "Install postgresql-client"
 yum install -y postgresql-client
 
@@ -23,10 +25,11 @@ echo $APP_SECRET >> /src/django-project/mysite/testvars
 echo $PACKER_BUILDER_AWS_REGION >> /src/django-project/mysite/testvars
 echo $VARS >> /src/django-project/mysite/testvars
 echo "SECRET_KEY=${APP_SECRET}" >> /src/django-project/mysite/.env
-echo "SECRET_KEY=${APP_SECRET}${VARS}" >> /src/django-project/mysite/.env
 echo "NEW_SECRETVARS=${NEW_SECRET}${VARS}" >> /src/django-project/mysite/testvars
 echo "NEW_SECRET=${NEW_SECRET}" >> /src/django-project/mysite/testvars
+echo "GITHUB_BRANCH=${GITHUB_BRANCH}" >> /src/django-project/mysite/testvars
 
-
-
-
+#Django migrations
+cd /src/django-project
+python3 /src/django-project/manage.py makemigrations
+python3 /src/django-project/manage.py migrate
