@@ -25,7 +25,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: ami-id
-          path: output/ami-id.${{ github.sha }}
+          path: output/
         
 
   terraform_deploy:
