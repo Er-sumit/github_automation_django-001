@@ -65,5 +65,20 @@
                 "GITHUB_SHA={{user `GITHUB_SHA`}}"
             ]
         }
+    ],
+    "post-processors" : [
+        {
+            "type" : "docker-tag",
+            "repository" : "django-app",
+            "tag" : "{{user `GITHUB_SHA`}}"
+        },
+        {
+            "type" : "manifest",
+            "repository" : "manifest.json",
+            "strip_path": true,
+            "custom_data": {
+                "my_custom_data": "example"
+            }
+        }
     ]
 }
