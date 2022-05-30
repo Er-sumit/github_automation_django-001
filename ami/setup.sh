@@ -4,13 +4,11 @@ export PATH=$PATH:/usr/local/bin
 
 echo "Install git"
 yum install -y git
-sleep 10
 echo "Install Python3"
 yum install -y python3
-sleep 10
 echo "Install pip3"
 yum install -y python3-pip
-sleep 10
+sleep 20
 
 # echo "Install postgresql-client"
 # yum install -y postgresql-client
@@ -19,7 +17,7 @@ mkdir /src
 rm -r /src
 git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_django-001.git /src
 
-pip3 install -r /src/requirements.txt
+#pip3 install -r /src/requirements.txt
 
 # write SUPER_SECRET in /src/src/config.py
 echo $APP_SECRET >> /src/django-project/mysite/testvars
