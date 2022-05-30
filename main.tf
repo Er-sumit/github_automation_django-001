@@ -98,11 +98,19 @@ resource "aws_network_acl" "django_security_ACL" {
     from_port  = 80
     to_port    = 80
   }
-  
-  # allow ingress ephemeral ports 
+  # allow egress ephemeral ports
   ingress {
     protocol   = "tcp"
     rule_no    = 300
+    action     = "allow"
+    cidr_block = var.destinationCIDRblock
+    from_port  = 443
+    to_port    = 443
+  }
+  # allow ingress ephemeral ports 
+  ingress {
+    protocol   = "tcp"
+    rule_no    = 400
     action     = "allow"
     cidr_block = var.destinationCIDRblock
     from_port  = 1024
@@ -135,12 +143,21 @@ resource "aws_network_acl" "django_security_ACL" {
     rule_no    = 300
     action     = "allow"
     cidr_block = var.destinationCIDRblock
+    from_port  = 443
+    to_port    = 443
+  }
+  # allow egress ephemeral ports
+  egress {
+    protocol   = "tcp"
+    rule_no    = 400
+    action     = "allow"
+    cidr_block = var.destinationCIDRblock
     from_port  = 1024
     to_port    = 65535
   }
   tags = {
     Name = "Django-gh-actions-test"
-    Terraform   = "true"
+    method   = "terraform"
   }
 } # end resource aws_network_acl
 
@@ -233,18 +250,18 @@ resource "aws_instance" "new-vm" {
   # }
 }
 
-resource "aws_launch_configuration" "django_app_launch_conf" {
-  name          = "django-app-launch-conf"
-  image_id      = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
-}
+# resource "aws_launch_configuration" "django_app_launch_conf" {
+#   name          = "django-app-launch-conf"
+#   image_id      = data.aws_ami.ubuntu.id
+#   instance_type = "t2.micro"
+# }
 
 # Create the Auto Scaling Group
-resource "aws_autoscaling_group" "django_app_asg" {
-  #availability_zones = ["ap-south-1a", "ap-south-1b"]
-  desired_capacity   = 0
-  max_size           = 1
-  min_size           = 0
-  launch_configuration = "${aws_launch_configuration.django_app_launch_conf.name}"
-  vpc_zone_identifier = [ aws_subnet.django_subnet.id, aws_subnet.django_subnet2.id ]
-}
+# resource "aws_autoscaling_group" "django_app_asg" {
+#   #availability_zones = ["ap-south-1a", "ap-south-1b"]
+#   desired_capacity   = 0
+#   max_size           = 1
+#   min_size           = 0
+#   launch_configuration = "${aws_launch_configuration.django_app_launch_conf.name}"
+#   vpc_zone_identifier = [ aws_subnet.django_subnet.id, aws_subnet.django_subnet2.id ]
+# }
