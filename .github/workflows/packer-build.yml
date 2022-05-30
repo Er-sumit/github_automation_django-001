@@ -2,7 +2,7 @@ name: Run packer build on a template file
 
 on:
   push:
-    branches: [ feature/cicd ]
+    branches: [ feature/cicd, ami-v1 ]
 
 jobs:
   packer_build:
