@@ -4,12 +4,13 @@ export PATH=$PATH:/usr/local/bin
 
 echo "Install git"
 yum install -y git
+sleep 10
 echo "Install Python3"
 yum install -y python3
+sleep 10
 echo "Install pip3"
 yum install -y python3-pip
-
-yum update
+sleep 10
 
 # echo "Install postgresql-client"
 # yum install -y postgresql-client
