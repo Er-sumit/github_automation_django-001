@@ -11,8 +11,8 @@ yum install -y python3-pip
 
 yum update
 
-echo "Install postgresql-client"
-yum install -y postgresql-client
+# echo "Install postgresql-client"
+# yum install -y postgresql-client
 
 mkdir /src
 rm -r /src
