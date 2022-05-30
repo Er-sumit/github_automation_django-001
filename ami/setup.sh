@@ -1,4 +1,4 @@
-yum update  
+yum update -y
 export PATH=$PATH:/usr/local/bin
 # Install the following packages:   
 
