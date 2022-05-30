@@ -1,14 +1,14 @@
-yum update -y
-export PATH=$PATH:/usr/local/bin
-# Install the following packages:   
+# yum update -y
+# export PATH=$PATH:/usr/local/bin
+# # Install the following packages:   
 
-echo "Install git"
-yum install -y git
-echo "Install Python3"
-yum install -y python3
-echo "Install pip3"
-yum install -y python3-pip
-sleep 20
+# echo "Install git"
+# yum install -y git
+# echo "Install Python3"
+# yum install -y python3
+# echo "Install pip3"
+# yum install -y python3-pip
+# sleep 20
 
 # echo "Install postgresql-client"
 # yum install -y postgresql-client
