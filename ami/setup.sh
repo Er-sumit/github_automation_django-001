@@ -29,7 +29,7 @@ echo "NEW_SECRETVARS=${NEW_SECRET}${VARS}" >> /src/django-project/mysite/testvar
 echo "NEW_SECRET=${NEW_SECRET}" >> /src/django-project/mysite/testvars
 echo "GITHUB_BRANCH=${GITHUB_BRANCH}" >> /src/django-project/mysite/testvars
 
-#Django migrations
-cd /src/django-project
-python3 /src/django-project/manage.py makemigrations
-python3 /src/django-project/manage.py migrate
+# #Django migrations
+# cd /src/django-project
+# python3 /src/django-project/manage.py makemigrations
+# python3 /src/django-project/manage.py migrate
