@@ -5,11 +5,11 @@ variable "vpc_cidr" {
 }
 
 variable "region" {
-  default = "ap-south-1"
+  default = "eu-west-2"
 }
 
 variable "availabilityZone" {
-  default = "ap-south-1a"
+  default = "eu-west-2a"
 }
 
 variable "instanceTenancy" {

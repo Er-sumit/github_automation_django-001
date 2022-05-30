@@ -11,7 +11,7 @@ terraform {
 
 # Configure provider AWS and region
 provider "aws" {
-  region = "ap-south-1"
+  region = "eu-west-2"
 }
 
 # Configure AWS VPC
@@ -35,7 +35,7 @@ resource "aws_subnet" "django_subnet2" {
   vpc_id                  = aws_vpc.django_vpc.id
   cidr_block              = var.subnetCIDRblock_b
   map_public_ip_on_launch = var.mapPublicIP 
-  availability_zone       = "ap-south-1b"
+  availability_zone       = "eu-west-2b"
   tags = {
     Name = "Django-gh-actions-test"
   }
@@ -174,7 +174,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/django-app--*","django-app-*"]
+    values = ["ubuntu/images/django-app-*","django-app-*"]
   }
 
   filter {
@@ -192,9 +192,10 @@ resource "aws_key_pair" "deployer" {
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC5truLA8Fnt7ZvzCtkRuC+h3YeYYuiiWWqbjj6cz5S6lHRr86JdQ1ZxJ2b7So2ZwBKYxJqKJHNk/vbc5Z67tA+EUewIoNRVJNHftmJ2ZoqdrNxRWg3LNaBNJYPxtl8UsZ5Gkmew/N2wus+joyDoiUuYsV/X2K/5EwJfNGgLKeSxnrOv2B8CTSpE+pxS8BuG7ghn7/6YoXGWKS32Er+1DWI5klc1ZtZTy7bBiJPz8sEOqMW+1JfQaf9A8n3gljJAqRyxSYj2VMQv30XEEx8UKE5Zy5qR6H3q3tP0MOdzNSRqQUBWPcUosJ9CGusXmBa02dNXzc9M2f+xCZhbf1uomFSfVehN4LvVn+plM2KId+OVDc/OYpDhfV9dY67eOOtPkLT3AOy73UnZdFUGksPDhiSVgYzHFRHkI9Ji7O+ON+oCDtrGphPOVNRcM6/5MEsk0jkjOKp/jL9CgOb0D4S4KnPV5JRy7wKLsBCROkUUjV1TTC/aFmT/btCUxO9+9i5gI35pWe1FvO0Jx99eNJeiFsZ2fmvUNtIuVOxlAn268vZQRH+2V7isCs9FhAhY4PJtc7+GL042NErW68weHlYCZ4YIOxJ3dAipuXshUMPKe1jWv1+eh0X7BVilhBkTIzbmcyPP7Ahr7Pee2NiVDhgel6CxQtS57Iwtu09vPX4JqRjGQ== sumitsontakke@Sumits-MacBook-Pro-2.local"
 }
 
-# "ami-079b5e5b3971bd10d"
+# "ami-079b5e5b3971bd10d" ap-south-1
+# ami-0d729d2846a86a9e7 eu-west-1
 resource "aws_instance" "latest-vm" {
-  ami                         = "ami-079b5e5b3971bd10d"
+  ami                         = "ami-0d729d2846a86a9e7"
   instance_type               = "t2.micro"
   key_name                    = "${aws_key_pair.deployer.key_name}"
   subnet_id                   = aws_subnet.django_subnet.id

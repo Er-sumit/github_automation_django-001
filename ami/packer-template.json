@@ -1,12 +1,12 @@
 {
     "variables" : {
-        "region" : "ap-south-1",
+        "region" : "eu-west-2",
         "aws_access_key_id": "{{ env `AWS_ACCESS_KEY_ID` }}",
         "aws_secret_access_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}",
         "APP_SECRET": "{{ env `APP_SECRET` }}",
         "new_secret": "{{ env `NEW_SECRET` }}",
         "github_branch": "{{ env `GITHUB_BRANCH` }}",
-        "source_ami" : "ami-079b5e5b3971bd10d",
+        "source_ami" : "ami-0d729d2846a86a9e7",
         "GITHUB_SHA": "{{ env `GITHUB_SHA` }}"
     },
     "builders" : [
