@@ -15,18 +15,18 @@
 
 mkdir /src
 rm -r /src
-git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_django-001.git /src
+# git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_django-001.git /src
 
 #pip3 install -r /src/requirements.txt
 
 # write SUPER_SECRET in /src/src/config.py
-echo $APP_SECRET >> /testvarsasdfa
-echo $PACKER_BUILDER_AWS_REGION >> /testvarsasdfa
-echo $VARS >> /testvarsasdfa
-echo "SECRET_KEY=${APP_SECRET}" >> /.envasdfa
-echo "NEW_SECRETVARS=${NEW_SECRET}${VARS}" >> /testvarsasdfa
-echo "NEW_SECRET=${NEW_SECRET}" >> /testvarsasdfa
-echo "GITHUB_BRANCH=${GITHUB_BRANCH}" >> /testvarsasdfa
+# echo $APP_SECRET >> /testvarsasdfa
+# echo $PACKER_BUILDER_AWS_REGION >> /testvarsasdfa
+# echo $VARS >> /testvarsasdfa
+# echo "SECRET_KEY=${APP_SECRET}" >> /.envasdfa
+# echo "NEW_SECRETVARS=${NEW_SECRET}${VARS}" >> /testvarsasdfa
+# echo "NEW_SECRET=${NEW_SECRET}" >> /testvarsasdfa
+# echo "GITHUB_BRANCH=${GITHUB_BRANCH}" >> /testvarsasdfa
 
 # #Django migrations
 # cd /src/django-project
