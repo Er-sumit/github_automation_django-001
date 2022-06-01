@@ -2,7 +2,7 @@ name: Packer with Terraform
 
 on:
   push:
-    branches: [ feature/cicd ]
+    branches: [ feature/cicd, main ]
 
 jobs:
   packer_build:
