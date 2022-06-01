@@ -27,9 +27,5 @@ data "aws_iam_policy_document" "deployment-service-policy" {
 
     actions = ["sts:AssumeRole", "autoscaling:*", "codedeploy:*", "ec2:*", "lambda:*", "ecs:*", "elasticloadbalancing:*", "iam:AddRoleToInstanceProfile", "iam:AttachRolePolicy", "iam:CreateInstanceProfile", "iam:CreateRole", "iam:DeleteInstanceProfile", "iam:DeleteRole", "iam:DeleteRolePolicy", "iam:GetInstanceProfile", "iam:GetRole", "iam:GetRolePolicy", "iam:ListInstanceProfilesForRole", "iam:ListRolePolicies", "iam:ListRoles", "iam:PutRolePolicy", "iam:RemoveRoleFromInstanceProfile", "s3:*", "ssm:*"]
 
-    resources = [
-      "arn:aws:s3:::*",
-      "*",
-    ]
   }
 }
