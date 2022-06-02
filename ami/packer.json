@@ -23,7 +23,7 @@
             "ami_name" : "django-app-{{user `GITHUB_BRANCH`}}-{{user `GITHUB_SHA`}}",
             "ami_description" : "Ubuntu Image with \"django\" application installed",
             "run_tags" : {
-                "Name" : "packer-built-{{.BuildName}}"
+                "Name" : "packer-built-ami"
             },
             "tags" : {
                 "Tool" : "Packer",
