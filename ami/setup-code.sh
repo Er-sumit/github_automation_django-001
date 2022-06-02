@@ -5,6 +5,7 @@ sudo chown -Rf $me /src
 sudo yum install python3-pip -y
 #pip3 install --upgrade pip
 pip3 install -r /tmp/requirements.txt
+mkdir -p /src
 cd /src
 django-admin startproject newproject
 cd /src/newproject
