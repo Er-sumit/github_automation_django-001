@@ -1,8 +1,8 @@
-sudo apt-get update -y
+sudo yum update -y
 sudo git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_django-001.git /src
 me=`whoami`
 sudo chown -Rf $me /src
-sudo apt-get install python3-pip -y
+sudo yum install python3-pip -y
 #pip3 install --upgrade pip
 pip3 install -r /tmp/requirements.txt
 cd /src

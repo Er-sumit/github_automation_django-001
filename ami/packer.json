@@ -1,12 +1,12 @@
 {
     "variables" : {
-        "region" : "{{ env `AWS_DEFAULT_REGION` }}",
+        "region" : "eu-west-2",
         "aws_access_key_id": "{{ env `AWS_ACCESS_KEY_ID` }}",
         "aws_secret_access_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}",
         "APP_SECRET": "{{ env `APP_SECRET` }}",
         "new_secret": "{{ env `NEW_SECRET` }}",
         "github_branch": "{{ env `GITHUB_BRANCH` }}",
-        "source_ami" : "ami-0a244485e2e4ffd03",
+        "source_ami" : "ami-0d729d2846a86a9e7",
         "GITHUB_SHA": "{{ env `GITHUB_SHA` }}"
     },
     "builders" : [
@@ -18,7 +18,7 @@
             "secret_key": "{{ user `AWS_SECRET_ACCESS_KEY` }}",
             "instance_type" : "t2.micro",
             "source_ami" : "{{ user `source_ami` }}",
-            "ssh_username" : "ubuntu",
+            "ssh_username" : "ec2-user",
             "ssh_timeout": "2m",
             "ami_name" : "django-app-{{user `GITHUB_BRANCH`}}-{{user `GITHUB_SHA`}}",
             "ami_description" : "Ubuntu Image with \"django\" application installed",
