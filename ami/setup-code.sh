@@ -28,3 +28,5 @@ echo 'print(uuid.uuid4())' >> /tmp/generate_secret.py
 secret_key=`python3 /tmp/generate_secret.py`
 echo "SECRET_KEY='$secret_key'" >> /src/newproject/newproject/.env
 echo $APP_SECRET >> /src/newproject/newproject/.env
+# update settings file to allow hosts from other domains
+sed -i 's/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = \[\"*\"\]/g' /src/newproject/newproject/settings.py
