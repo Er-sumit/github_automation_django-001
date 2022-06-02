@@ -12,13 +12,13 @@ jobs:
       - name: Packer build on AWS
         uses: ExitoLab/packer_build_action_aws@v0.2.10
         with:
-          templateFile: 'packer-template.json'
+          templateFile: 'packer.json'
           workingDir: 'ami'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ECR_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ECR_KEY }}
           APP_SECRET: ${{ secrets.APP_SECRET }}
-          AWS_DEFAULT_REGION: ap-south-1
+          AWS_DEFAULT_REGION: eu-west-2
           GITHUB_BRANCH: ${{ steps.extract_branch.outputs.branch }}
           NEW_SECRET: ${{ secrets.NEW_SECRET }}
           GITHUB_SHA: ${{ github.sha }}

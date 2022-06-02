@@ -1,0 +1,12 @@
+asgiref==3.5.0
+attrs==21.4.0
+Django==2.1.*
+iniconfig
+packaging
+pluggy
+py
+pyparsing
+pytest
+pytest-django
+django-environ
+uuid
