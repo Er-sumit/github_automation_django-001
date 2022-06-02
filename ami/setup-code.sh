@@ -4,6 +4,10 @@ git clone --branch feature/cicd https://github.com/Er-sumit/github_automation_dj
 me=`whoami`
 sudo chown -Rf $me /src
 sudo yum install python3-pip -y
+
+echo "installing git"
+sudo yum install git -y
+
 export PATH=$PATH:/usr/local/bin
 echo "export PATH=$PATH:/usr/local/bin" >> ~/.bash_profile
 sleep 1
