@@ -211,19 +211,19 @@ resource "aws_key_pair" "deployer" {
 
 # "ami-079b5e5b3971bd10d" ap-south-1
 # ami-0d729d2846a86a9e7 eu-west-1
-resource "aws_instance" "latest-vm" {
-  ami                         = "ami-0d729d2846a86a9e7"
-  instance_type               = "t2.micro"
-  key_name                    = "${aws_key_pair.deployer.key_name}"
-  subnet_id                   = aws_subnet.django_subnet.id
-  #security_groups             = [ "${aws_security_group.django_security_group.id}" ]
-  vpc_security_group_ids      = [ "${aws_security_group.django_security_group.id}" ]
-  associate_public_ip_address = true
+# resource "aws_instance" "latest-vm" {
+#   ami                         = "ami-0d729d2846a86a9e7"
+#   instance_type               = "t2.micro"
+#   key_name                    = "${aws_key_pair.deployer.key_name}"
+#   subnet_id                   = aws_subnet.django_subnet.id
+#   #security_groups             = [ "${aws_security_group.django_security_group.id}" ]
+#   vpc_security_group_ids      = [ "${aws_security_group.django_security_group.id}" ]
+#   associate_public_ip_address = true
 
-  tags = {
-    "method" = "teffaform"
-  }
-}
+#   tags = {
+#     "method" = "teffaform"
+#   }
+# }
 
 # Instance for the web server
 resource "aws_instance" "new-vm" {

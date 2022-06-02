@@ -9,3 +9,4 @@ pyparsing
 pytest
 pytest-django
 django-environ
+uuid
